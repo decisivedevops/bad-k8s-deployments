@@ -1,0 +1,33 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: bad-deployment
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: bad-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: bad-deployment
+    spec:
+      volumes:
+        - name: logs
+          emptyDir:
+            sizeLimit: 1Mi
+      containers:
+        - name: bad-container
+          image: busybox:1.35.0
+          volumeMounts:
+            - mountPath: /logs
+              name: logs
+          command:
+            - sh
+            - -c
+            - |
+              while true;
+              do
+                echo "Allocating a random log file that exceeds emptyDir sizeLimit..."
+                fallocate -l 2M /logs/mylog.log
+              done;

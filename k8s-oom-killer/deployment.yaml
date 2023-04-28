@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: oom-killer
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: oom-killer
+  template:
+    metadata:
+      labels:
+        app: oom-killer
+    spec:
+      containers:
+      - name: oom-killer-container
+        image: decisivedevops/oom-killer:v1.0.0
+        resources:
+          limits:
+            memory: 64Mi
+        env:
+        - name: MEMORY_INCREMENT_MB
+          value: "10"
+        - name: SLEEP_TIME
+          value: "10"
