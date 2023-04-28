@@ -1,4 +1,4 @@
-# OOM Killer
+# OOM Killer Demo
 
 OOM Killer is a simple project that demonstrates a Kubernetes deployment designed to purposefully consume memory until the container is terminated with an OutOfMemory (OOM) error. This project can be used to stress test and better understand how Kubernetes handles memory constraints and OOM situations in a cluster.
 

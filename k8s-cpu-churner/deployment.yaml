@@ -1,0 +1,17 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: cpu-churner-deployment
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: cpu-churner-deployment
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: cpu-churner-deployment
+    spec:
+      containers:
+        - name: cpu-churner-container
+          image: decisivedevops/k8s-cpu-churner:v1.0.0
