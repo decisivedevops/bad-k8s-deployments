@@ -2,8 +2,6 @@
 
 OOM Killer is a simple project that demonstrates a Kubernetes deployment designed to purposefully consume memory until the container is terminated with an OutOfMemory (OOM) error. This project can be used to stress test and better understand how Kubernetes handles memory constraints and OOM situations in a cluster.
 
-**Warning: This deployment is for testing purposes only and should not be used in production environments.**
-
 ## Overview
 
 The project consists of a Python script that continuously consumes memory based on a user-provided value, a Docker image containing the script, and a Kubernetes deployment that runs the container with a specified memory limit.
