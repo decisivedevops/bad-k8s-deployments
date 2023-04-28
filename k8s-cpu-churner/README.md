@@ -17,7 +17,7 @@ This will create a Deployment with one replica running the high CPU usage Python
 To monitor the CPU usage of the deployed application, you can use the following command:
 
 ```bash
-kubectl top pod -l app.kubernetes.io/name=cpu-churner-deployment --watch
+kubectl top pod -l app.kubernetes.io/name=cpu-churner-deployment
 ```
 
 This command will show the current CPU and memory usage of the pods with the `app.kubernetes.io/name=cpu-churner-deployment` label.
