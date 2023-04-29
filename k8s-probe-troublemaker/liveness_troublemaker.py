@@ -44,6 +44,7 @@ def simulate_real_world_app(log_sleep_time_range):
     while True:
         log_line = random.choice(LOG_LINES)
         print(log_line)
+        sys.stdout.flush()
         sleep_time = random.randint(1, log_sleep_time_range)
         time.sleep(sleep_time)
 
