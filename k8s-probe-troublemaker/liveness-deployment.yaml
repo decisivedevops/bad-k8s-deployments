@@ -15,7 +15,6 @@ spec:
       containers:
         - name: liveness-probe-troublemaker-container
           image: decisivedevops/liveness-troublemaker:v1.0.0
-          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           env:
