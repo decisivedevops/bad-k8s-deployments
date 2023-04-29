@@ -1,4 +1,4 @@
-# bad-k8s
+# bad-k8s-deployments
 ***A collection of bad Kubernetes deployments to test monitoring/ alerting tools***
 
 <img src="./assets/badpirateshipcaptain.png" align="center"/>
