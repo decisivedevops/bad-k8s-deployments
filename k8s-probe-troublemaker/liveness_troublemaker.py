@@ -57,4 +57,11 @@ if __name__ == '__main__':
     server_thread.daemon = True
     server_thread.start()
 
-    simulate_real_world_app(log_sleep_time_range)
+    log_simulation_thread = threading.Thread(
+        target=simulate_real_world_app, args=(log_sleep_time_range,))
+    log_simulation_thread.daemon = True
+    log_simulation_thread.start()
+
+    # Keep the main thread running
+    while True:
+        time.sleep(1)

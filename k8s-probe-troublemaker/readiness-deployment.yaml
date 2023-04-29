@@ -15,6 +15,7 @@ spec:
       containers:
         - name: readiness-probe-troublemaker-container
           image: decisivedevops/readiness-troublemaker:v1.0.0
+          imagePullPolicy: Always
           ports:
             - containerPort: 8080
           env:
