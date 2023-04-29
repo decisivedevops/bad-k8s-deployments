@@ -1,0 +1,5 @@
+FROM python:3.9-slim
+
+COPY readiness_troublemaker.py /app/readiness_troublemaker.py
+
+CMD ["python", "/app/readiness_troublemaker.py"]

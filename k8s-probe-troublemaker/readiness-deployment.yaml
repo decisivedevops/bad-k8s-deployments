@@ -1,0 +1,36 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: readiness-probe-troublemaker-deployment
+spec:
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: readiness-probe-troublemaker
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: readiness-probe-troublemaker
+    spec:
+      containers:
+        - name: readiness-probe-troublemaker-container
+          image: decisivedevops/readiness-troublemaker:v1.0.0
+          ports:
+            - containerPort: 8080
+          env:
+            - name: LOG_SLEEP_TIME_RANGE
+              value: "10"
+            - name: SERVER_PORT
+              value: "8080"
+          readinessProbe:
+            httpGet:
+              path: /readiness
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10
+          livenessProbe:
+            httpGet:
+              path: /liveness
+              port: 8080
+            initialDelaySeconds: 5
+            periodSeconds: 10

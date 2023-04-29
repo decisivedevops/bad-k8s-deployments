@@ -1,0 +1,5 @@
+FROM python:3.9-slim
+
+COPY liveness_troublemaker.py /app/liveness_troublemaker.py
+
+CMD ["python", "/app/liveness_troublemaker.py"]
