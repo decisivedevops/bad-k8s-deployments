@@ -1,8 +1,10 @@
 import os
 import random
 import time
+import threading
 import sys
 from http.server import BaseHTTPRequestHandler, HTTPServer
+
 
 LOG_LINES = [
     "INFO: App started successfully.",
