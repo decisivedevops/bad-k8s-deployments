@@ -32,14 +32,14 @@ The Liveness Troublemaker is a Python application that initially passes its read
 
 - Apply the deployments to your Kubernetes cluster:
 
-```
+```bash
 kubectl apply -f readiness-deployment.yaml
 kubectl apply -f liveness-deployment.yaml
 ```
 
 - Monitor the logs and the state of your deployments using `kubectl` to observe the behavior of the failing readiness and liveness probes:
 
-```
+```bash
 # get pod status
 kubectl get pods -l app.kubernetes.io/name=readiness-probe-troublemaker --watch
 kubectl get pods -l app.kubernetes.io/name=liveness-probe-troublemaker --watch
@@ -51,6 +51,15 @@ kubectl get events --field-selector involvedObject.kind=Pod,involvedObject.name=
 # get pod logs
 kubectl logs -f -l app.kubernetes.io/name=readiness-probe-troublemaker
 kubectl logs -f -l app.kubernetes.io/name=liveness-probe-troublemaker
+```
+
+## Cleaning Up
+
+To delete the Deployments and its associated resources, run:
+
+```bash
+kubectl delete -f readiness-deployment.yaml
+kubectl delete -f liveness-deployment.yaml
 ```
 
 Use this setup to test and improve your monitoring and alerting tools for handling failing readiness and liveness probes in Kubernetes.
