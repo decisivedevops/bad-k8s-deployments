@@ -1,5 +1,7 @@
 # bad-k8s
-A collection of bad Kubernetes deployments to test monitoring/ alerting tools
+***A collection of bad Kubernetes deployments to test monitoring/ alerting tools***
+
+<img src="./assets/badpirateshipcaptain.png" align="center"/>
 
 > **Warning: These deployments are for testing purposes only and should not be run in production environments.**
 
